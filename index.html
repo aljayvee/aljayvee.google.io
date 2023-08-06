@@ -48,9 +48,37 @@ function searchKeyword() {
 if(searchInput == ""){
 alert("Fill it up.");
 }
+    else if(searchInput.startWith("www.") || searchInput.startWith("https://") || searchInput.startWith("http://")){
+        searchDomain();
+    }
 else{
     window.location.href = searchUrl;
     }
+}
+
+    function searchDomain() {
+    var domainInput = document.getElementById("domainInput").value;
+    var formattedDomain = formatDomain(domainInput);
+    var protocol = "https://";
+    var searchUrl1 = protocol + formattedDomain;
+    window.location.href = searchUrl1;
+}
+
+function formatDomain(domain) {
+    // Remove leading/trailing whitespaces
+    domain = domain.trim();
+    
+    // Check if "http://" or "https://" is already provided
+    if (!domain.startsWith("http://") && !domain.startsWith("https://")) {
+        // Check if "www." is present in the domain name, if not, add it
+        if (!domain.startsWith("www.")) {
+            domain = "www." + domain;
+        }
+        // Add default protocol "https://"
+        domain = "https://" + domain;
+    }
+    
+    return domain;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
