@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
+
     <title>Google Chrome</title>
 </head>
 <style>
@@ -19,6 +24,15 @@
 
 }
 
+#text1{
+    font-size: 13spt;
+    color: black;
+    font-weight: 400;
+    font-style: initial;
+    font-family: Arial;
+    text-align: center;
+}
+
 body{
     background-image: url('img1.jpg');
 }
@@ -31,13 +45,52 @@ body{
       border-radius: 15px 15px 15px 15px;
       font-size: 16px;
       color: black;
-      margin-top: 20%;
+      font-style: unset;
+      margin-top: 15%;
       margin-left: 34%;
+    }
+
+a{
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    font-size: 9pt;
+    margin-bottom: 80%;
+    margin-left: 90%;
+    font-family: 'Arial, sans-serif';
+    text-decoration: none;
+}
+
+.bold-placeholder::placeholder {
+  font-weight: bold;
+  
+}
+
+.container {
+      text-align: right;
+      font-size: 15pt;
+      margin-right: 1%;
+    }
+
+
+   .social-links {
+      margin-top: 0px;
+      margin-right: 12pt;
+    }
+    
+    /* Additional CSS for black social media icons */
+    .social-links a {
+      color: #fff; /* White color */
+    }
+
+    footer {
+      bottom: 0;
+      margin-left: 0%;
     }
 
 </style>
 <script>
-
 
 function searchKeyword() {
     var searchInput = document.getElementById("domainInput").value;
@@ -48,18 +101,22 @@ function searchKeyword() {
 if(searchInput == ""){
 alert("Fill it up.");
 }
-    else if(searchInput.startWith("www.") || searchInput.startWith("https://") || searchInput.startWith("http://")){
-        searchDomain();
-    }
+else if(searchInput.startsWith("www.") || searchInput.startsWith("https://") || searchInput.startsWith("http://")){
+    searchDomain();
+}
+else if(searchInput.endsWith(".com") || searchInput.endsWith(".io")){
+    searchDomain();
+}
 else{
     window.location.href = searchUrl;
     }
 }
 
-    function searchDomain() {
+
+function searchDomain() {
     var domainInput = document.getElementById("domainInput").value;
     var formattedDomain = formatDomain(domainInput);
-    var protocol = "https://";
+    var protocol = "";
     var searchUrl1 = protocol + formattedDomain;
     window.location.href = searchUrl1;
 }
@@ -68,16 +125,12 @@ function formatDomain(domain) {
     // Remove leading/trailing whitespaces
     domain = domain.trim();
     
-    // Check if "http://" or "https://" is already provided
-    if (!domain.startsWith("http://") && !domain.startsWith("https://")) {
-        // Check if "www." is present in the domain name, if not, add it
-        if (!domain.startsWith("www.")) {
-            domain = "www." + domain;
-        }
-        // Add default protocol "https://"
-        domain = "https://" + domain;
-    }
-    
+ if(domain.endsWith("io")){
+    domain = "http://" + domain;
+ }
+ else{
+    domain = "https://" + domain;
+ }
     return domain;
 }
 
@@ -93,10 +146,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <body>
     <div>
-      <p id="text">Good Experience with Chrome.</p>
-    </div>
+        <footer>
+        <div class="container">
+            <div class="social-links">
+              <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT</a><br>
+              <a href="https://www.facebook.com/lilyTelcep" target="_blank" rel="noopener noreferrer">Facebook<i class="fab fa-facebook"></i></a><br>
+              <a href="https://github.com/aljayvee" target="_blank" rel="noopener noreferrer">Github<i class="fab fa-github"></i></a><br>
+              <a href="https://www.instagram.com/aljayveeversola/?fbclid=IwAR1iyAXkI0b5aADFmTcI-zuoFkxfL6twrlclHvaRqffrxuXAt3l77of2vgE" target="_blank" rel="noopener noreferrer">Instagram<i class="fab fa-instagram"></i></a>
+              <!-- Add more social media links as needed -->
+            </div>
+            </div>
+            </footer>
+          </div>
+    </div> 
+    <p id="text">Good Experience with Chrome.</p>
     <div>
-        <input type="text" id="domainInput" placeholder="Google Chrome">
+        <input type="text" id="domainInput" placeholder="Google Search" class="bold-placeholder" target="_blank">
+    </div>
+    <br><br><br><br><br>
+    <div>
+        <p id="text1">Offered By: Me:></p>
     </div>
 </body>
 </html>
