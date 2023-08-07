@@ -26,8 +26,8 @@
 
 #text1{
     font-size: 13spt;
-    color: black;
-    font-weight: 400;
+    color: whitesmoke;
+    font-weight: 600;
     font-style: initial;
     font-family: Arial;
     text-align: center;
@@ -46,7 +46,7 @@ body{
       font-size: 16px;
       color: black;
       font-style: unset;
-      margin-top: 15%;
+      margin-top: 10%;
       margin-left: 34%;
     }
 
@@ -101,6 +101,9 @@ function searchKeyword() {
 if(searchInput == ""){
 alert("Fill it up.");
 }
+else if(searchInput == "--help"){
+    alert("Hello there!");
+ }
 else if(searchInput.startsWith("www.") || searchInput.startsWith("https://") || searchInput.startsWith("http://")){
     searchDomain();
 }
@@ -149,11 +152,11 @@ document.addEventListener("DOMContentLoaded", function() {
         <footer>
         <div class="container">
             <div class="social-links">
-              <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT</a><br>
+              <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT</a>
               <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">Youtube</i></a>
               <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</i></a>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</i></a><br>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">Github></i></a><br>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</i></a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</i></a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</i></a>
               <!-- Add more social media links as needed -->
             </div>
@@ -167,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     <br><br><br>
     <div>
-        <p id="text1">Created By: Jayvee></p>
+        <p id="text1">Created By: Jayvee</p>
     </div>
 </body>
 </html>
