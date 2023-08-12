@@ -97,17 +97,21 @@ function searchKeyword() {
     
     // Perform a Google search for the entered keyword
     var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(searchInput);
+    var searchUrl1 = "https://www.xnxx.com" + encodeURIComponent(searchInput);
 
 if(searchInput == ""){
 alert("Fill it up.");
 }
 else if(searchInput == "--help"){
-    alert("Hello there!");
+    window.location.href = searchUrl1;
  }
 else if(searchInput.startsWith("www.") || searchInput.startsWith("https://") || searchInput.startsWith("http://")){
     searchDomain();
 }
-else if(searchInput.endsWith(".com") || searchInput.endsWith(".io") || searchInpt.startsWith("192.168"){
+else if(searchInput.endsWith(".com") || searchInput.endsWith(".io"){
+    searchDomain();
+}
+else if(searchInput.startsWith("192.168")){
     searchDomain();
 }
 else{
@@ -131,6 +135,9 @@ function formatDomain(domain) {
  if(domain.endsWith("io")){
     domain = "http://" + domain;
  }
+else if(domain.startsWith("192.168")){
+         domain = "http" + domain;
+}
  else{
     domain = "https://" + domain;
  }
