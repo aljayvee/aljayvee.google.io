@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
@@ -97,27 +97,27 @@ function searchKeyword() {
     
     // Perform a Google search for the entered keyword
     var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(searchInput);
-    var searchUrl1 = "https://www.xnxx.com" + encodeURIComponent(searchInput);
 
 if(searchInput == ""){
 alert("Fill it up.");
 }
 else if(searchInput == "--help"){
-    window.location.href = searchUrl1;
+    alert("Hello there!");
  }
 else if(searchInput.startsWith("www.") || searchInput.startsWith("https://") || searchInput.startsWith("http://")){
     searchDomain();
 }
-else if(searchInput.endsWith(".com") || searchInput.endsWith(".io"){
+else if(searchInput.endsWith(".com") || searchInput.endsWith(".io")){
     searchDomain();
 }
-else if(searchInput.startsWith("192.168")){
+else if(searchInput.startsWith(192.168)){
     searchDomain();
 }
 else{
     window.location.href = searchUrl;
     }
 }
+
 
 
 function searchDomain() {
@@ -131,16 +131,18 @@ function searchDomain() {
 function formatDomain(domain) {
     // Remove leading/trailing whitespaces
     domain = domain.trim();
+   
     
  if(domain.endsWith("io")){
     domain = "http://" + domain;
  }
-else if(domain.startsWith("192.168")){
-         domain = "http://" + domain;
-}
+ else if(domain.startsWith(192.)){
+    domain = "http://" + domain;
+ }
  else{
     domain = "https://" + domain;
  }
+
     return domain;
 }
 
